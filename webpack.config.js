@@ -33,7 +33,9 @@ const config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['!*.csv', '!*.json']
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.css'
     }),
