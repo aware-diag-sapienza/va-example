@@ -3,12 +3,14 @@ import views from './views'
 
 class Controller {
   constructor() {
+    // Model
     this.model = model
+    // Views
     this.barchartAscending = views.barchart()
     this.barchartDescending = views.barchart()
-    //
+    // Model functions binding
     this.model.bindEntriesListChanged(this.onEntriesListChanged.bind(this))
-    //
+    // Views functions binding
     this.barchartAscending.bindClick((entry) => this.handleUpdateEntry({ id: entry.id, selected: !entry.selected })).bind(this)
     this.barchartDescending.bindClick((entry) => this.handleUpdateEntry({ id: entry.id, selected: !entry.selected })).bind(this)
   }

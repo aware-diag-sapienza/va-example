@@ -27,10 +27,10 @@ export default function() {
             .attr('class', 'display-bar')
             .attr('x', 0)
             .attr('width', function (d) { return d.value * widthScale })
-            .attr('y', function (d, i) { return i * barSpacing  })
+            .attr('y', function (_d, i) { return i * barSpacing  })
             .attr('height', barHeight)
             .style('fill', d => d.selected ? 'green' : 'red')
-            .on('click', d => onClick(d))
+            .on('click', (_e, d) => onClick(d))
         )
       
       //
@@ -46,15 +46,15 @@ export default function() {
               .attr('class', 'display-bar')
               .attr('x', 0)
               .attr('width', function (d) { return d.value * widthScale })
-              .attr('y', function (d, i) { return i * barSpacing  })
+              .attr('y', function (_d, i) { return i * barSpacing  })
               .attr('height', barHeight)
               .style('fill', d => d.selected ? 'green' : 'red')
-              .on('click', d => onClick(d)),
+              .on('click', (_e, d) => onClick(d)),
             update => update
               .call(update => update
                 .transition()
                 .duration(1000)
-                .attr('y', function(d, i) { return i * barSpacing; })
+                .attr('y', function(_d, i) { return i * barSpacing; })
                 .attr('height', barHeight)
                 .style('fill', d => d.selected ? 'green' : 'red')
               ),

@@ -4,11 +4,11 @@ class Model {
     this.entriesById = {}
     this.onEntriesListChanged = () => {}
   }
-  //
+  // 
   bindEntriesListChanged(callback) {
     this.onEntriesListChanged = callback
   }
-  //
+  // 
   addEntry(entry) {
     if (entry.id === undefined) throw new Error('Entry with missing id')
     this.entries.push(entry)

@@ -2,11 +2,11 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const meta = require('./package.json')
 
 const config = {
   entry: { main: './src/index.js' },
+  target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
@@ -24,7 +24,6 @@ const config = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader',
-          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader'
@@ -35,9 +34,6 @@ const config = {
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['!*.csv', '!*.json']
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css'
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
