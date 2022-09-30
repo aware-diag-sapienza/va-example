@@ -30,7 +30,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "d3": "^6.3.1",
+    "d3": "^7.6.1",
     "normalize.css": "8.0.1"
   },
   "browserslist": [
